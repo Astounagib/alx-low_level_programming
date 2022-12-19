@@ -7,42 +7,10 @@
 
 void rev_string(char *s)
 {
-int i = 0, length;
-length = _strlen(s) - 1;
-while (length > i)
-{
-swap_char(s + length, s + i);
-i++;
-length--;
-}
-}
+char s[10] = "main.h";
 
-/**
- *_strlen - returns the length of a string
- * @s: string
- *Return: returns lenght;
- */
-
-int _strlen(char *s)
-{
-int count, inc;
-inc = 0;
-for (count = 0; s[count] != '\0'; count++)
-inc++;
-
-return (inc);
-}
-
-/**
- *swap_char - swap two characters
- *@a: first character
- *@b: second character
- *Return: nothing
- */
-
-void swap_char(char *a, char *b)
-{
-char t = *a;
-*a = *b;
-*b = t;
+printf("%s\n", s);
+rev_string(s);
+printf("%s\n", s);
+return (0);
 }
