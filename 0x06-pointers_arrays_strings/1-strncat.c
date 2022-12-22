@@ -1,4 +1,4 @@
-#include "holberton.h"
+#include "main.h"
 /**
  * _strncat - concatenate strings, defining the size of second string.
  * @dest: string with concatenation
