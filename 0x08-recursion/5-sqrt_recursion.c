@@ -1,22 +1,30 @@
 #include "main.h"
 
 /**
- * _pow_recursion - pow recursion
- * @x: integer params
- * @y: integer paramtr
- * Return: recursion
+ * _sqrt_recursion - main funct
+ * @n: int n
+ * Return: int
  */
 
+int _sqrt_recursion(int n)
+{
+return (_sqrt(n, 1));
+}
 
-int _pow_recursion(int x, int y)
+/**
+ * _sqrt - _sqrt_recursion
+ * @n: integer paramtr
+ * @i: integer parameter
+ * Return: sqrt
+ */
+
+int _sqrt(int n, int i)
 {
-if (y < 0)
-{
+if (n < 0)
 return (-1);
-}
-if (y == 0)
-{
-return (1);
-}
-return (x * _pow_recursion(x, y - 1));
+if ((i * i) > n)
+return (-1);
+if (i * i == n)
+return (i);
+return (_sqrt(n, i + 1));
 }
