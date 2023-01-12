@@ -1,29 +1,52 @@
 #include "main.h"
 #include <stdlib.h>
+#include <stdio.h>
 /**
-  *_strdup - returns a pointer to a newly alloctaed
-  *space in memory which contains a copy of the string
-  *passed.
-  *@str: pointer to string being duplicated.
+  *str_concat - concatenates 2 strings.
+  * a NULL string is treated as an empty string.
+  *@s1: pointer to string.
+  *@s2: pointer to string.
   *
-  *Return: NULL if str is NULL.
-  *pointer to duplicated string on success.
-  *NULL if memory was insufficient.
+  *Return: pointer to newly allocated memory which
+  *has s1, s2 and null byte.
+  *NULL on failure.
   */
-char *_strdup(char *str)
+char *str_concat(char *s1, char *s2)
 {
-        char *nstr;
-        unsigned int len, i;
+	unsigned int len1, len2, size, i, j;
+	char *nstr;
 
-        /* check is str is null */
-        if (str == NULL)
-        {
-                return (NULL);
-        }
+	if (s1 == NULL)
+		s1 = "";
+	if (s2 == NULL)
+		s2 = "";
 
-        len = 0;
-        while (str[len] != '\0')
-        {
-                len++;
-        }
+	len1 = 0;
+	while (s1[len1] != '\0')
+		len1++;
+	len2 = 0;
+	while (s2[len2] != '\0')
+		len2++;
 
+	size = len1 + len2;
+
+	nstr = malloc((sizeof(char) * size) + 1);
+	/*check if malloc was successful */
+	if (nstr == NULL)
+		return (NULL);
+
+	i = 0;
+	while (i < len1)
+	{
+		nstr[i] = s1[i];
+		i++;
+	}
+	j = 0;
+	while (i <= size)
+	{
+		nstr[i] = s2[j];
+		i++;
+		j++;
+	}
+	return (nstr);
+}
